@@ -23,6 +23,45 @@ module.exports = appInfo => {
     // myAppName: 'egg',
   };
 
+  config.security = {
+    // 关闭 csrf
+    csrf: {
+      enable: false,
+    },
+  };
+  
+  // 允许跨域的方法
+  config.cors = {
+    origin: '*',
+    allowMethods: 'GET, PUT, POST, DELETE, PATCH'
+  };
+
+
+  config.middleware = ['handleError'];
+  //数据库配置
+  config.sequelize = {
+    dialect: 'mysql',
+    host: '127.0.0.1',
+    username: "root",
+    password: 'root',
+    port: 3306,
+    database: 'video-base',
+    // 中国时区
+    timezone: '+08:00',
+    define: {
+      // 取消数据表名复数
+      freezeTableName: true,
+      // 自动写入时间戳 created_at updated_at
+      timestamps: true,
+      // 字段生成软删除时间戳 deleted_at
+      // paranoid: true,
+      createdAt: 'created_time',
+      updatedAt: 'updated_time',
+      // deletedAt: 'deleted_time',
+      // 所有驼峰命名格式化
+      underscored: true
+    }
+  };
   return {
     ...config,
     ...userConfig,
