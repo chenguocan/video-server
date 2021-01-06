@@ -23,7 +23,7 @@ module.exports = {
         comment:'昵称'
       },
       password:{
-        type:STRING(20),
+        type:STRING(255),
         allowNull:false,
         defaultValue:'',
         comment:'密码'

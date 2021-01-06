@@ -13,5 +13,13 @@ module.exports = {
   sequelize: {
     enable: true,
     package: 'egg-sequelize',
-  }
+  },
+  validate : {
+    enable: true,
+    package: 'egg-validate',
+  },
+  valparams : {
+    enable : true,
+    package: 'egg-valparams'
+  },
 };
